@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青蛙的"三张面孔"——多样、有用，却在退场 | 数据新闻</title>
+<style>
+/* ============ 基础 ============ */
+:root{
+  --blue-900:#0D47A1;
+  --blue-800:#1565C0;
+  --blue-700:#1976D2;
+  --blue-500:#2196F3;
+  --blue-300:#64B5F6;
+  --blue-100:#E3F2FD;
+  --blue-50:#F7FBFF;
+  --line:#DCEAF9;
+  --ink:#111111;
+  --ink-2:#333333;
+  --ink-3:#6B8199;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:#FFFFFF;
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px;}
+
+/* ============ 头部 ============ */
+.hero{
+  background:linear-gradient(180deg,#EAF4FE 0%,#F7FBFF 55%,#FFFFFF 100%);
+  padding:58px 0 34px;
+  border-bottom:3px solid var(--blue-800);
+}
+.kicker{
+  display:inline-block;
+  font-size:13px;
+  letter-spacing:2px;
+  color:var(--blue-800);
+  background:var(--blue-100);
+  border:1px solid #BBDDFB;
+  padding:3px 13px;
+  border-radius:999px;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:38px;
+  line-height:1.35;
+  color:var(--blue-900);
+  margin:0 0 16px;
+  letter-spacing:-.5px;
+  font-weight:800;
+}
+.hero h1 span{color:var(--blue-700);}
+.deck{font-size:17px;color:var(--ink-2);margin:0 0 18px;max-width:780px;}
+.hero .meta{
+  font-size:12.5px;color:var(--ink-3);
+  border-top:1px dashed #CFE3F7;
+  padding-top:14px;
+}
+
+/* ============ 主体 ============ */
+main{padding:8px 0 50px;}
+section{padding:34px 0 6px;}
+h2{
+  font-size:22px;
+  color:var(--blue-900);
+  margin:0 0 18px;
+  padding-left:14px;
+  border-left:5px solid var(--blue-500);
+  line-height:1.45;
+  font-weight:800;
+}
+p{margin:0 0 16px;color:var(--ink-2);}
+.hl{color:var(--blue-800);font-weight:700;}
+
+/* ============ 数据卡片 ============ */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;
+  margin:8px 0 22px;
+}
+.card{
+  background:var(--blue-50);
+  border:1px solid var(--line);
+  border-top:4px solid var(--blue-500);
+  border-radius:10px;
+  padding:16px 16px 14px;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 26px rgba(21,101,192,.14);
+  border-color:var(--blue-500);
+}
+.card-num{
+  font-size:27px;font-weight:800;color:var(--blue-900);
+  line-height:1.2;letter-spacing:-.5px;
+}
+.card-num span{font-size:13px;font-weight:700;color:var(--blue-800);margin-left:3px;}
+.card-label{font-size:13.5px;color:var(--ink-2);margin-top:6px;}
+.card-src{
+  font-size:11.5px;color:var(--ink-3);margin-top:8px;
+  border-top:1px dashed #D6E7F7;padding-top:7px;
+}
+
+/* ============ 图表卡片容器 ============ */
+.chart-card{
+  margin:6px 0 26px;
+  background:#FFFFFF;
+  border:1px solid #E1EEFA;
+  border-radius:12px;
+  padding:22px 20px 18px;
+  box-shadow:0 2px 14px rgba(13,71,161,.05);
+}
+.chart-title{
+  font-size:15px;font-weight:800;color:var(--blue-900);
+  margin-bottom:18px;padding-left:10px;
+  border-left:4px solid var(--blue-300);
+  line-height:1.5;
+}
+.chart-note{
+  font-size:12px;color:var(--ink-3);
+  margin:14px 0 0;line-height:1.75;
+}
+
+/* ============ 柱形图 ============ */
+.bar-chart{
+  display:flex;
+  justify-content:space-around;
+  align-items:flex-end;
+  gap:10px;
+  padding:40px 0 0;
+  border-bottom:2px solid #CFE3F7;
+}
+.bar-col{display:flex;flex-direction:column;align-items:center;}
+.bar-track{
+  height:300px;width:62px;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.bar{
+  position:relative;
+  width:100%;
+  height:0;
+  border-radius:8px 8px 0 0;
+  background:linear-gradient(180deg,var(--c1,#42A5F5) 0%,var(--c2,#1565C0) 100%);
+  transition:height 1.1s cubic-bezier(.22,.8,.28,1),filter .2s;
+}
+.bar.grow{height:var(--h);}
+.bar:hover{filter:brightness(1.1);}
+.bar-val{
+  position:absolute;top:-27px;left:50%;
+  transform:translateX(-50%);
+  font-size:15px;font-weight:800;color:var(--blue-900);
+  white-space:nowrap;
+  opacity:0;
+  transition:opacity .45s .7s;
+}
+.bar.grow .bar-val{opacity:1;}
+.bar-name{
+  margin-top:12px;
+  font-size:13.5px;color:var(--ink);font-weight:700;
+  text-align:center;white-space:nowrap;
+}
+
+/* ============ 折线图 ============ */
+.chart-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:6px;}
+.line-wrap{position:relative;min-width:660px;}
+#lineChart{width:100%;height:auto;display:block;overflow:visible;}
+.dot-hit{cursor:pointer;}
+
+/* 提示框 */
+.line-tip{
+  position:absolute;
+  z-index:10;
+  min-width:180px;
+  max-width:250px;
+  background:var(--blue-900);
+  color:#fff;
+  border-radius:10px;
+  padding:12px 14px;
+  font-size:12.5px;
+  line-height:1.62;
+  pointer-events:none;
+  opacity:0;
+  transform:translateX(-50%);
+  transition:opacity .18s ease;
+  box-shadow:0 12px 28px rgba(13,71,161,.3);
+}
+.line-tip.show{opacity:1;}
+.tip-title{font-weight:700;color:#BBDEFB;font-size:12px;margin-bottom:3px;}
+.tip-value{font-size:23px;font-weight:800;line-height:1.15;margin-bottom:6px;}
+.tip-note{color:#E3F2FD;}
+.tip-src{
+  color:#9CC4E8;font-size:11px;margin-top:6px;
+  border-top:1px solid rgba(255,255,255,.2);padding-top:5px;
+}
+
+/* ============ GIF ============ */
+.gif-box{
+  text-align:center;
+  border-radius:10px;
+  overflow:hidden;
+  background:var(--blue-50);
+  border:1px solid var(--line);
+  padding:10px;
+}
+.gif{
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:0 auto;
+  border-radius:8px;
+}
+.gif-missing::after{
+  content:"（31.gif 未找到，请确认与 777.html 位于同一目录）";
+  display:block;
+  padding:40px 10px;
+  color:var(--ink-3);
+  font-size:13px;
+}
+
+/* ============ 收束 ============ */
+.conclusion{
+  margin:14px 0 26px;
+  background:linear-gradient(180deg,#F2F8FF 0%,#FFFFFF 100%);
+  border:1px solid #DCEAF9;
+  border-left:6px solid var(--blue-800);
+  border-radius:12px;
+  padding:24px 24px 8px;
+}
+.conclusion p{color:#1b2b3a;}
+.conclusion p:last-child{margin-bottom:16px;}
+
+/* ============ 页脚 ============ */
+footer{
+  border-top:1px solid var(--line);
+  padding:26px 0 46px;
+  font-size:12.5px;
+  color:var(--ink-3);
+  line-height:1.9;
+}
+footer strong{color:var(--blue-900);}
+
+/* ============ 响应式 ============ */
+@media (max-width:720px){
+  .hero{padding:38px 0 26px;}
+  .hero h1{font-size:27px;}
+  .deck{font-size:15px;}
+  h2{font-size:19px;}
+  .bar-track{height:210px;width:46px;}
+  .bar-name{font-size:12px;}
+  .bar-val{font-size:13px;top:-23px;}
+  .chart-card{padding:18px 14px 14px;}
+  .card-num{font-size:23px;}
+  .line-wrap{min-width:560px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= 头部 ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">数据新闻 · 生物多样性</div>
+    <h1>青蛙的"三张面孔"<br><span>多样、有用，却在退场</span></h1>
+    <p class="deck">
+      全球两栖动物刚刚跨过一个里程碑：被描述的物种数达到 <span class="hl">9,072 种</span>，其中无尾目（青蛙与蟾蜍）约 7,828 种，占绝对多数。
+      但同一组数据也指向另一面——在 IUCN 红色名录评估中，<span class="hl">41%</span> 的两栖动物被归入受威胁等级，
+      而它们获得的保护资金，只占全球保护资金的 <span class="hl">3.4%</span>。
+    </p>
+    <div class="meta">
+      数据来源：IUCN 红色名录 2025-2 · Amphibian Ark / Borzée et al. (2025) · IUCN ASG FrogLog (2026) · FrogLife / Frost 数据库 · 生物物种名录（COL）2025 年 3 月
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- ================= 一、多样 ================= -->
+  <section id="diversity">
+    <h2>一、多样：一个被低估的"隐形物种库"</h2>
+    <p>
+      中国记录的蛙科物种有 <span class="hl">164 种</span>，从乡间水田的黑斑蛙、泽蛙，到山林溪流中的石蛙，
+      它们构成了一个长期被忽视的"隐形物种库"。物种数量的增长，说明我们仍在"发现"青蛙；
+      但同一批数据里，还藏着另一条曲线。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">9,072<span>种</span></div>
+        <div class="card-label">全球两栖动物已描述物种数</div>
+        <div class="card-src">IUCN ASG FrogLog（2026）</div>
+      </div>
+      <div class="card">
+        <div class="card-num">7,828<span>种</span></div>
+        <div class="card-label">无尾目（蛙 + 蟾）物种数</div>
+        <div class="card-src">FrogLife / Frost 数据库（2025 年中）</div>
+      </div>
+      <div class="card">
+        <div class="card-num">164<span>种</span></div>
+        <div class="card-label">中国蛙科记录物种数</div>
+        <div class="card-src">生物物种名录（COL），2025 年 3 月</div>
+      </div>
+      <div class="card">
+        <div class="card-num">2,684<span>种</span></div>
+        <div class="card-label">受栖息地丧失威胁的两栖动物</div>
+        <div class="card-src">全球两栖动物评估综合</div>
+      </div>
+      <div class="card">
+        <div class="card-num">50–200<span>只/天</span></div>
+        <div class="card-label">一只青蛙一天捕食害虫（约 1.5 万只/年）</div>
+        <div class="card-src">中国科普与田间观测综述</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 二、表1 折线图 ================= -->
+  <section id="variables">
+    <h2>二、有用与退场：可量化的"数字账本"</h2>
+    <p>
+      青蛙的生态价值不是修辞。菲律宾吕宋疣蛙的食谱中，水稻害虫占 <span class="hl">54.1%</span>；
+      日本树蛙在豆田胃内容物分析中，蚜虫占全部猎物的 <span class="hl">67.2%</span>。
+      这意味着它并非"偶尔吃虫"，而是在特定农田生态系统中承担着可量化的害虫抑制功能。
+      但把保护侧的指标放到同一根纵轴上，落差立刻显现。
+    </p>
+
+    <figure class="chart-card">
+      <figcaption class="chart-title">表 1：青蛙科普数据新闻关键变量（百分比指标折线图）</figcaption>
+
+      <div class="chart-scroll">
+        <div class="line-wrap" id="lineWrap">
+          <svg id="lineChart" role="img" aria-label="青蛙科普数据新闻关键变量百分比折线图"></svg>
+          <div class="line-tip" id="lineTip"></div>
+        </div>
+      </div>
+
+      <p class="chart-note">
+        说明：图中 6 个数据点为不同维度的百分比指标（受威胁比例、食谱害虫占比、保护资源占比等），
+        纵轴统一为百分比刻度，用于直观比较各指标的量级。鼠标悬停 / 点击数据点可查看具体数值、比例与数据来源。
+        物种数等绝对量指标以本页上方数据卡片呈现。
+      </p>
+    </figure>
+  </section>
+
+  <!-- ================= 三、图1 柱形图 ================= -->
+  <section id="threat">
+    <h2>三、退场：受威胁比例对比</h2>
+    <p>
+      两栖动物是脊椎动物中受威胁最严重的一类。把主要类群放到同一把尺子上，
+      <span class="hl">41%</span> 的两栖动物、<span class="hl">39%</span> 的蛙类（无尾目）被归入受威胁等级，
+      明显高于哺乳动物的 26% 与鸟类的 11%。
+    </p>
+
+    <figure class="chart-card">
+      <figcaption class="chart-title">图 1：受威胁物种比例对比（IUCN 红色名录评估类群）</figcaption>
+
+      <div class="bar-chart" id="barChart">
+        <div class="bar-col">
+          <div class="bar-track">
+            <div class="bar" style="--h:88%;--c1:#42A5F5;--c2:#0D47A1;">
+              <span class="bar-val">41%</span>
+            </div>
+          </div>
+          <div class="bar-name">两栖动物</div>
+        </div>
+
+        <div class="bar-col">
+          <div class="bar-track">
+            <div class="bar" style="--h:83.7%;--c1:#4AA8F0;--c2:#1565C0;">
+              <span class="bar-val">39%</span>
+            </div>
+          </div>
+          <div class="bar-name">蛙类（无尾目）</div>
+        </div>
+
+        <div class="bar-col">
+          <div class="bar-track">
+            <div class="bar" style="--h:55.8%;--c1:#64B5F6;--c2:#1976D2;">
+              <span class="bar-val">26%</span>
+            </div>
+          </div>
+          <div class="bar-name">哺乳动物</div>
+        </div>
+
+        <div class="bar-col">
+          <div class="bar-track">
+            <div class="bar" style="--h:23.6%;--c1:#90CAF9;--c2:#2196F3;">
+              <span class="bar-val">11%</span>
+            </div>
+          </div>
+          <div class="bar-name">鸟类</div>
+        </div>
+      </div>
+
+      <p class="chart-note">
+        数据来源：IUCN 红色名录 2025-2；蛙类数据来自 Amphibian Ark / Borzée et al.（2025）。柱高按比例示意。
+      </p>
+    </figure>
+  </section>
+
+  <!-- ================= 四、图2 GIF ================= -->
+  <section id="countdown">
+    <h2>四、一只青蛙的"捕食倒计时"</h2>
+    <p>
+      青蛙的"消失"不只是数量下降，更是一场在数据不足中加速的退场：
+      超过一半的蛙类物种至今只有成体描述，胚胎、蝌蚪阶段的栖息地和习性几乎空白，
+      而保护措施往往只瞄准成体。
+    </p>
+
+    <figure class="chart-card">
+      <figcaption class="chart-title">图 2：一只青蛙的"捕食倒计时"</figcaption>
+      <div class="gif-box">
+        <img src="./31.gif" alt="一只青蛙的捕食倒计时动图" class="gif"
+             onerror="this.style.display='none';this.parentNode.classList.add('gif-missing');">
+      </div>
+      <p class="chart-note">动图文件：31.gif（与本页面 777.html 位于同一目录）。</p>
+    </figure>
+  </section>
+
+  <!-- ================= 三点收束 ================= -->
+  <section id="conclusion">
+    <h2>三点收束</h2>
+    <div class="conclusion">
+      <p>
+        青蛙的<b>多样性</b>仍在被"发现"（9,000 种里程碑），但其生存空间在被"压缩"（41% 受威胁）；
+        它在农田中的<b>功能</b>可以被量化（害虫占比过半），却只获得极不相称的保护资源（3.4%）。
+      </p>
+      <p>
+        数据新闻的意义不在于把青蛙"可爱化"，而在于把它的退场，
+        从一句"数量减少"变成一组<b>可追踪、可比较、可追问</b>的数字。
+      </p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ================= 页脚 ================= -->
+<footer>
+  <div class="wrap">
+    <strong>数据来源</strong>：IUCN 红色名录 2025-2；Amphibian Ark / Borzée et al. (2025)；IUCN ASG FrogLog (2026)；
+    FrogLife / Frost 数据库（2025 年中）；生物物种名录（COL）2025 年 3 月；菲律宾稻田研究（Elsevier, 2019）；
+    日本豆田胃内容物研究（2007）；全球两栖动物评估综合。<br>
+    <strong>制图说明</strong>：表 1 转化为交互式折线图，图 1 转化为柱形图，图 2 使用同级目录 31.gif。<br>
+    本页为数据新闻可视化示例，数据以原文所引来源为准。
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     表 1 → 折线图数据
+     ========================================================= */
+  var LINE_DATA = [
+    {
+      top: '两栖动物',
+      bottom: '受威胁比例',
+      value: 41,
+      fmt: '41%',
+      note: '两栖动物中 41% 被归入受威胁等级，是脊椎动物中受威胁最严重的一类。',
+      src: 'IUCN 红色名录 2025-2'
+    },
+    {
+      top: '蛙类',
+      bottom: '受威胁比例',
+      value: 39,
+      fmt: '39%',
+      note: '无尾目（青蛙与蟾蜍）的受威胁比例为 39%。',
+      src: 'Amphibian Ark / Borzée et al. (2025)'
+    },
+    {
+      top: '吕宋疣蛙',
+      bottom: '食谱害虫占比',
+      value: 54.1,
+      fmt: '54.1%',
+      note: '菲律宾吕宋疣蛙的食谱中，水稻害虫占 54.1%——青蛙是农田里可量化的害虫抑制者。',
+      src: '菲律宾稻田研究（Elsevier, 2019）'
+    },
+    {
+      top: '日本树蛙',
+      bottom: '食谱蚜虫占比',
+      value: 67.2,
+      fmt: '67.2%',
+      note: '日本树蛙在豆田胃内容物分析中，蚜虫占全部猎物的 67.2%，叶甲和毛虫也频繁出现。',
+      src: '日本豆田胃内容物研究（2007）'
+    },
+    {
+      top: '两栖动物',
+      bottom: '占受威胁脊椎动物',
+      value: 25.2,
+      fmt: '25.2%',
+      note: '两栖动物占全球受威胁脊椎动物的 25.2%，是分量极重的一类。',
+      src: '全球两栖动物评估综合'
+    },
+    {
+      top: '两栖动物',
+      bottom: '获保护资金比例',
+      value: 3.4,
+      fmt: '3.4%',
+      note: '两栖动物获得的保护资金却仅占 3.4%——威胁最大，资源最少。',
+      src: '全球两栖动物评估综合'
+    }
+  ];
+
+  var svgEl  = document.getElementById('lineChart');
+  var wrapEl = document.getElementById('lineWrap');
+  var tipEl  = document.getElementById('lineTip');
+  var activeIndex = -1;
+
+  /* =========================================================
+     构建折线图
+     ========================================================= */
+  function buildLineChart() {
+    var W = 900, H = 460;
+    var padL = 62, padR = 38, padT = 44, padB = 94;
+    var plotW = W - padL - padR;
+    var plotH = H - padT - padB;
+    var yMax  = 80;
+    var n     = LINE_DATA.length;
+
+    var xAt = function (i) {
+      return padL + plotW * 0.06 + plotW * 0.88 * (i / (n - 1));
+    };
+    var yAt = function (v) {
+      return padT + plotH * (1 - v / yMax);
+    };
+    var baseY = yAt(0);
+
+    var s = '';
+
+    /* --- defs --- */
+    s += '<defs>';
+    s += '  <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">';
+    s += '    <stop offset="0%" stop-color="#2196F3" stop-opacity="0.30"/>';
+    s += '    <stop offset="100%" stop-color="#2196F3" stop-opacity="0.02"/>';
+    s += '  </linearGradient>';
+    s += '  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">';
+    s += '    <stop offset="0%" stop-color="#0D47A1"/>';
+    s += '    <stop offset="60%" stop-color="#1976D2"/>';
+    s += '    <stop offset="100%" stop-color="#42A5F5"/>';
+    s += '  </linearGradient>';
+    s += '</defs>';
+
+    /* --- 网格线 + 纵轴刻度 --- */
+    for (var v = 0; v <= yMax; v += 20) {
+      var gy = yAt(v);
+      s += '<line x1="' + padL + '" y1="' + gy + '" x2="' + (W - padR) + '" y2="' + gy +
+           '" stroke="#E7F1FB" stroke-width="1"/>';
+      s += '<text x="' + (padL - 12) + '" y="' + (gy + 4) +
+           '" text-anchor="end" font-size="12" fill="#8AA0B6">' + v + '%</text>';
+    }
+    s += '<line x1="' + padL + '" y1="' + baseY + '" x2="' + (W - padR) + '" y2="' + baseY +
+         '" stroke="#C6DEF5" stroke-width="1.5"/>';
+
+    /* --- 坐标点 --- */
+    var pts = LINE_DATA.map(function (d, i) {
+      return { x: xAt(i), y: yAt(d.value) };
+    });
+
+    var lineD = pts.map(function (p, i) {
+      return (i === 0 ? 'M' : 'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1);
+    }).join(' ');
+
+    var areaD = lineD +
+      ' L' + pts[n - 1].x.toFixed(1) + ',' + baseY +
+      ' L' + pts[0].x.toFixed(1) + ',' + baseY + ' Z';
+
+    s += '<path d="' + areaD + '" fill="url(#areaGrad)"/>';
+    s += '<path id="linePath" d="' + lineD + '" fill="none" stroke="url(#lineGrad)" ' +
+         'stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
+
+    /* --- 点、数值标签、横轴标签 --- */
+    LINE_DATA.forEach(function (d, i) {
+      var p = pts[i];
+
+      s += '<text x="' + p.x + '" y="' + (H - padB + 28) +
+           '" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0D47A1">' +
+           d.top + '</text>';
+
+      s += '<text x="' + p.x + '" y="' + (H - padB + 47) +
+           '" text-anchor="middle" font-size="11.5" fill="#6B8199">' +
+           d.bottom + '</text>';
+
+      s += '<text class="val-label" data-i="' + i + '" x="' + p.x + '" y="' + (p.y - 15) +
+           '" text-anchor="middle" font-size="13" font-weight="800" fill="#0D47A1" opacity="0">' +
+           d.fmt + '</text>';
+
+      s += '<circle class="dot" data-i="' + i + '" cx="' + p.x + '" cy="' + p.y +
+           '" r="6" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>';
+
+      s += '<circle class="dot-hit" data-i="' + i + '" cx="' + p.x + '" cy="' + p.y +
+           '" r="20" fill="transparent"/>';
+    });
+
+    svgEl.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    svgEl.innerHTML = s;
+
+    animateLine();
+    bindDots();
+  }
+
+  /* =========================================================
+     折线绘制动画 + 数据点淡入
+     ========================================================= */
+  function animateLine() {
+    var path = svgEl.querySelector('#linePath');
+    if (!path) return;
+
+    var len = path.getTotalLength();
+    path.style.strokeDasharray  = len;
+    path.style.strokeDashoffset = len;
+
+    /* 强制重排，确保过渡生效 */
+    void path.getBoundingClientRect();
+
+    setTimeout(function () {
+      path.style.transition = 'stroke-dashoffset 1.5s ease-out';
+      path.style.strokeDashoffset = 0;
+    }, 80);
+
+    /* 圆点 */
+    svgEl.querySelectorAll('.dot').forEach(function (el, i) {
+      el.style.opacity = 0;
+      el.style.transition = 'opacity .35s ease';
+      setTimeout(function () { el.style.opacity = 1; }, 600 + i * 130);
+    });
+
+    /* 数值标签 */
+    svgEl.querySelectorAll('.val-label').forEach(function (el, i) {
+      el.style.transition = 'opacity .35s ease';
+      setTimeout(function () { el.style.opacity = 1; }, 760 + i * 130);
+    });
+  }
+
+  /* =========================================================
+     交互：悬停 / 点击显示数值
+     ========================================================= */
+  function setActive(i, on) {
+    var dot = svgEl.querySelector('.dot[data-i="' + i + '"]');
+    if (!dot) return;
+    if (on) {
+      dot.setAttribute('r', '9');
+      dot.setAttribute('fill', '#1565C0');
+    } else {
+      dot.setAttribute('r', '6');
+      dot.setAttribute('fill', '#FFFFFF');
+    }
+  }
+
+  function showTip(i, hitEl) {
+    var d = LINE_DATA[i];
+    if (!d) return;
+
+    if (activeIndex !== -1 && activeIndex !== i) setActive(activeIndex, false);
+    activeIndex = i;
+    setActive(i, true);
+
+    tipEl.innerHTML =
+      '<div class="tip-title">' + d.top + ' · ' + d.bottom + '</div>' +
+      '<div class="tip-value">' + d.fmt + '</div>' +
+      '<div class="tip-note">' + d.note + '</div>' +
+      '<div class="tip-src">来源：' + d.src + '</div>';
+
+    tipEl.classList.add('show');
+
+    var hitRect  = hitEl.getBoundingClientRect();
+    var wrapRect = wrapEl.getBoundingClientRect();
+
+    var tipW = tipEl.offsetWidth;
+    var tipH = tipEl.offsetHeight;
+
+    var left = hitRect.left + hitRect.width / 2 - wrapRect.left;
+    var top  = hitRect.top - wrapRect.top - tipH - 14;
+
+    /* 水平方向不越界 */
+    var minLeft = tipW / 2 + 6;
+    var maxLeft = wrapRect.width - tipW / 2 - 6;
+    if (left < minLeft) left = minLeft;
+    if (left > maxLeft) left = maxLeft;
+
+    /* 上方空间不足则显示在点下方 */
+    if (top < 4) {
+      top = hitRect.bottom - wrapRect.top + 14;
+    }
+
+    tipEl.style.left = left + 'px';
+    tipEl.style.top  = top + 'px';
+  }
+
+  function hideTip() {
+    tipEl.classList.remove('show');
+    if (activeIndex !== -1) {
+      setActive(activeIndex, false);
+      activeIndex = -1;
+    }
+  }
+
+  function bindDots() {
+    svgEl.querySelectorAll('.dot-hit').forEach(function (hit) {
+      var i = parseInt(hit.getAttribute('data-i'), 10);
+
+      hit.addEventListener('mouseenter', function () { showTip(i, hit); });
+      hit.addEventListener('mouseleave', hideTip);
+      hit.addEventListener('click', function (e) {
+        e.stopPropagation();
+        showTip(i, hit);
+      });
+      hit.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        showTip(i, hit);
+      }, { passive: false });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!wrapEl.contains(e.target)) hideTip();
+    });
+    window.addEventListener('scroll', hideTip, { passive: true });
+  }
+
+  /* =========================================================
+     柱形图入场动画
+     ========================================================= */
+  function initBars() {
+    var cols = document.querySelectorAll('.bar-col');
+
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.bar').forEach(function (b) { b.classList.add('grow'); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var bar = en.target.querySelector('.bar');
+          if (bar) bar.classList.add('grow');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cols.forEach(function (col) { io.observe(col); });
+  }
+
+  /* =========================================================
+     初始化
+     ========================================================= */
+  function init() {
+    buildLineChart();
+    initBars();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
