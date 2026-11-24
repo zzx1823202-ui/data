@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一笔十九块钱的账｜自动续费的四个关口，和一个人的三十天</title>
+<style>
+/* ============================================================
+   变量与基础
+   ============================================================ */
+:root{
+  --b900:#3E2723;
+  --b800:#4E342E;
+  --b700:#5D4037;
+  --b600:#6D4C41;
+  --b500:#8D6E63;
+  --b400:#A1887F;
+  --b300:#BCAAA4;
+  --b200:#D7CCC8;
+  --b100:#EFEBE9;
+  --b50:#FAF7F5;
+  --brick:#B23A2E;
+  --ink:#111111;
+  --ink2:#333333;
+  --ink3:#7A6B63;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:#FFFFFF;
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px;}
+p{margin:0 0 18px;color:var(--ink2);}
+.hl{color:var(--b800);font-weight:700;background:linear-gradient(transparent 62%, #EFEBE9 62%);padding:0 2px;}
+strong{color:var(--b900);}
+
+/* ============================================================
+   头部
+   ============================================================ */
+.hero{
+  background:linear-gradient(180deg,#FAF7F5 0%,#F4EEEA 48%,#FFFFFF 100%);
+  border-bottom:3px solid var(--b700);
+  padding:60px 0 38px;
+}
+.kicker{
+  display:inline-block;
+  font-size:12.5px;
+  letter-spacing:2.5px;
+  color:var(--b700);
+  background:#EFE7E2;
+  border:1px solid var(--b200);
+  padding:4px 14px;
+  border-radius:999px;
+  margin-bottom:20px;
+}
+.hero h1{
+  font-size:42px;
+  line-height:1.3;
+  color:var(--b900);
+  margin:0 0 12px;
+  font-weight:800;
+  letter-spacing:-.5px;
+}
+.hero .sub{
+  font-size:19px;
+  color:var(--b600);
+  margin:0 0 24px;
+  font-weight:600;
+  line-height:1.7;
+}
+.hero .standfirst{
+  font-size:16.5px;
+  color:var(--ink2);
+  border-left:4px solid var(--b300);
+  padding-left:16px;
+  margin:0 0 22px;
+}
+.hero .meta{
+  font-size:12.5px;
+  color:var(--ink3);
+  border-top:1px dashed var(--b200);
+  padding-top:14px;
+  line-height:1.85;
+}
+
+/* ============================================================
+   主体
+   ============================================================ */
+main{padding:6px 0 40px;}
+section{padding:40px 0 6px;}
+h2{
+  font-size:23px;
+  color:var(--b900);
+  font-weight:800;
+  margin:0 0 6px;
+  padding-left:14px;
+  border-left:5px solid var(--b500);
+  line-height:1.5;
+}
+.sec-num{
+  display:inline-block;
+  font-size:12.5px;
+  letter-spacing:3px;
+  color:var(--b500);
+  font-weight:700;
+  padding-left:19px;
+  margin-bottom:6px;
+}
+.sec-lead{font-size:15px;color:var(--ink3);padding-left:19px;margin-bottom:24px;}
+
+/* 引语 */
+blockquote{
+  margin:26px 0;
+  padding:20px 24px;
+  background:var(--b50);
+  border-left:5px solid var(--b400);
+  border-radius:0 8px 8px 0;
+  font-size:17px;
+  color:var(--b900);
+  font-weight:600;
+  line-height:1.85;
+}
+blockquote cite{
+  display:block;
+  margin-top:10px;
+  font-size:13px;
+  color:var(--ink3);
+  font-style:normal;
+  font-weight:400;
+}
+
+/* ============================================================
+   KPI 卡片
+   ============================================================ */
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:14px;
+  margin:30px 0 10px;
+}
+.kpi{
+  background:var(--b50);
+  border:1px solid var(--b100);
+  border-top:4px solid var(--b500);
+  border-radius:10px;
+  padding:16px 16px 14px;
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s;
+}
+.kpi:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 26px rgba(93,64,55,.13);
+  border-color:var(--b400);
+}
+.kpi-num{
+  font-size:29px;
+  font-weight:800;
+  color:var(--b900);
+  line-height:1.15;
+  letter-spacing:-.5px;
+}
+.kpi-num span{font-size:13px;font-weight:700;color:var(--b600);margin-left:3px;letter-spacing:0;}
+.kpi-label{font-size:13px;color:var(--ink2);margin-top:7px;line-height:1.6;}
+
+/* ============================================================
+   图表卡片
+   ============================================================ */
+.chart-card{
+  margin:8px 0 30px;
+  background:#FFFFFF;
+  border:1px solid #EDE6E1;
+  border-radius:12px;
+  padding:24px 22px 18px;
+  box-shadow:0 2px 16px rgba(78,52,46,.05);
+}
+.chart-title{
+  font-size:15.5px;
+  font-weight:800;
+  color:var(--b900);
+  padding-left:11px;
+  border-left:4px solid var(--b400);
+  margin-bottom:22px;
+  line-height:1.55;
+}
+.chart-note{
+  font-size:12px;
+  color:var(--ink3);
+  margin:16px 0 0;
+  line-height:1.8;
+  border-top:1px dashed var(--b100);
+  padding-top:12px;
+}
+
+/* ---------- 横向条形图 ---------- */
+.hbar-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+.hbar-name{
+  width:98px;
+  flex:0 0 98px;
+  text-align:right;
+  font-size:13px;
+  color:var(--ink);
+  line-height:1.3;
+}
+.hbar-track{
+  flex:1;
+  position:relative;
+  height:22px;
+  margin-right:52px;
+}
+.hbar-bg{
+  position:absolute;
+  inset:0;
+  background:var(--b100);
+  border-radius:3px;
+}
+.hbar-fill{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:0;
+  border-radius:3px;
+  transition:width 1.15s cubic-bezier(.22,.8,.28,1);
+}
+.hbar-val{
+  position:absolute;
+  left:100%;
+  top:50%;
+  transform:translateY(-50%);
+  margin-left:8px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--b900);
+  white-space:nowrap;
+  opacity:0;
+  transition:opacity .45s .75s;
+}
+.chart-card.in .hbar-fill{width:var(--w);}
+.chart-card.in .hbar-val{opacity:1;}
+
+/* 图例 */
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:16px;
+  font-size:12.5px;
+  color:var(--ink3);
+}
+.legend i{
+  display:inline-block;
+  width:12px;height:12px;
+  border-radius:2px;
+  margin-right:6px;
+  vertical-align:-1px;
+}
+
+/* ---------- 直方图 ---------- */
+.hist-wrap{position:relative;margin-top:6px;}
+.hist{
+  display:flex;
+  align-items:flex-end;
+  gap:6px;
+  height:250px;
+  border-bottom:2px solid var(--b200);
+  padding-top:28px;
+  position:relative;
+}
+.hist-col{
+  flex:1;
+  height:100%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+.hist-bar{
+  width:100%;
+  height:0;
+  background:var(--b400);
+  border-radius:2px 2px 0 0;
+  transition:height 1s cubic-bezier(.22,.8,.28,1), background .2s;
+  cursor:default;
+}
+.hist-bar:hover{background:var(--b600);}
+.chart-card.in .hist-bar{height:var(--h);}
+.hist-labels{
+  display:flex;
+  gap:6px;
+  margin-top:9px;
+}
+.hist-labels div{
+  flex:1;
+  text-align:center;
+  font-size:10.5px;
+  color:var(--ink3);
+  line-height:1.35;
+}
+.median-line{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:30%;
+  width:2px;
+  background:var(--brick);
+  opacity:.85;
+}
+.median-tag{
+  position:absolute;
+  top:-4px;
+  left:calc(30% + 8px);
+  font-size:12.5px;
+  font-weight:800;
+  color:var(--brick);
+  white-space:nowrap;
+  background:#fff;
+  padding:1px 5px;
+  border-radius:3px;
+}
+
+/* ---------- 开通 / 取消 对比条 ---------- */
+.cmp-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+}
+.cmp-label{
+  width:64px;
+  flex:0 0 64px;
+  font-size:14px;
+  font-weight:700;
+  color:var(--b900);
+  text-align:right;
+}
+.cmp-track{
+  flex:1;
+  position:relative;
+  height:30px;
+  margin-right:80px;
+}
+.cmp-bg{position:absolute;inset:0;background:var(--b100);border-radius:4px;}
+.cmp-fill{
+  position:absolute;left:0;top:0;bottom:0;
+  width:0;
+  border-radius:4px;
+  transition:width 1.2s cubic-bezier(.22,.8,.28,1);
+}
+.cmp-val{
+  position:absolute;left:100%;top:50%;
+  transform:translateY(-50%);
+  margin-left:10px;
+  font-size:13.5px;font-weight:800;
+  color:var(--b900);white-space:nowrap;
+  opacity:0;
+  transition:opacity .45s .8s;
+}
+.chart-card.in .cmp-fill{width:var(--w);}
+.chart-card.in .cmp-val{opacity:1;}
+
+/* ---------- 表格 ---------- */
+.table-scroll{
+  overflow-x:auto;
+  margin:6px 0 0;
+  -webkit-overflow-scrolling:touch;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+  line-height:1.7;
+  min-width:620px;
+}
+thead th{
+  background:var(--b800);
+  color:#fff;
+  font-weight:700;
+  text-align:left;
+  padding:11px 12px;
+  font-size:12.5px;
+  letter-spacing:.5px;
+  border-right:1px solid rgba(255,255,255,.13);
+}
+thead th:last-child{border-right:none;}
+tbody td{
+  padding:11px 12px;
+  border-bottom:1px solid var(--b100);
+  color:var(--ink2);
+  vertical-align:top;
+}
+tbody tr:nth-child(even){background:#FCFAF9;}
+tbody tr:hover{background:#F6F0EC;}
+tbody td:first-child{color:var(--b900);font-weight:700;}
+.tag{
+  display:inline-block;
+  font-size:11px;
+  padding:1px 7px;
+  border-radius:999px;
+  background:var(--b100);
+  color:var(--b700);
+  font-weight:700;
+  white-space:nowrap;
+}
+.tag-brick{background:#F6E3E0;color:var(--brick);}
+
+/* ============================================================
+   收束
+   ============================================================ */
+.ending{
+  margin:20px 0 34px;
+  background:linear-gradient(180deg,#FAF7F5 0%,#FFFFFF 100%);
+  border:1px solid var(--b100);
+  border-left:6px solid var(--b700);
+  border-radius:12px;
+  padding:26px 26px 10px;
+}
+.ending p{color:#2b211d;}
+.ending p:last-child{margin-bottom:18px;}
+
+.final-quote{
+  font-size:18px;
+  font-weight:700;
+  color:var(--b900);
+  line-height:1.85;
+  background:var(--b50);
+  border-radius:10px;
+  padding:22px 24px;
+  margin:26px 0 10px;
+  border:1px dashed var(--b200);
+}
+
+/* ============================================================
+   页脚
+   ============================================================ */
+footer{
+  border-top:1px solid var(--b100);
+  padding:28px 0 52px;
+  font-size:12.5px;
+  color:var(--ink3);
+  line-height:1.95;
+}
+footer strong{color:var(--b900);}
+
+/* ============================================================
+   入场动效
+   ============================================================ */
+.reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .7s ease, transform .7s cubic-bezier(.22,.8,.28,1);
+}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width:720px){
+  .hero{padding:40px 0 28px;}
+  .hero h1{font-size:29px;}
+  .hero .sub{font-size:16px;}
+  .hero .standfirst{font-size:15px;}
+  h2{font-size:19.5px;}
+  section{padding:32px 0 4px;}
+  blockquote{font-size:15.5px;padding:16px 18px;}
+  .chart-card{padding:18px 14px 14px;}
+  .hbar-name{width:72px;flex:0 0 72px;font-size:11.5px;}
+  .hbar-track{margin-right:42px;}
+  .hbar-fill{height:22px;}
+  .hbar-val{font-size:12px;}
+  .hist{height:200px;}
+  .hist-labels div{font-size:9.5px;}
+  .cmp-label{width:48px;flex:0 0 48px;font-size:13px;}
+  .cmp-track{margin-right:66px;height:26px;}
+  .cmp-val{font-size:12.5px;}
+  .kpi-num{font-size:24px;}
+  .median-tag{font-size:11px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     头部
+     ============================================================ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">数据新闻 · 消费维权</div>
+    <h1>一笔十九块钱的账</h1>
+    <p class="sub">自动续费的四个关口，和一个人的三十天</p>
+    <p class="standfirst">
+      从看见到弄明白，她花了整整一个月。这篇文章跟着这笔十九块钱，走完它经过的每一道关口：
+      <strong>开通、忘记、取消、追讨</strong>。这四道关口，也是我们实测十二款常用 App、
+      逐条读完九百一十二条投诉之后，反复看见的那四道。
+    </p>
+    <div class="meta">
+      数据来源：团队 2026 年 10 月人工实测编码（双人交叉复核）· 黑猫投诉平台 2026 年 8—11 月检索结果 ·
+      最高人民法院官网 / 广州市中级人民法院官网 / 北京互联网法院 / 市场监管部门行政处罚公开信息 ·
+      各公司 2026 年第一季度财报
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- ==========================================================
+       楔子
+       ========================================================== -->
+  <section class="reveal">
+    <div class="sec-num">楔 子</div>
+    <h2>十月底，一行找不到主人的支出</h2>
+    <p>
+      十月二十七号，晚上十一点多，小林（化名）照例打开记账软件，把当天的支出补完。这个习惯她保持了两年——
+      每一笔钱都要有名字，哪怕只是三块五的地铁。
+    </p>
+    <p>
+      那个月她翻到最后一页，发现有一行账找不到主人：<span class="hl">十九块，也许是二十</span>，
+      收款方是一串她不太认识的公司名，扣款日期在十天以前。
+    </p>
+    <p>
+      她把手机放下，又拿起来。
+    </p>
+    <blockquote>
+      "要不是我去记账，可能我自己都忘了这个自动续费，可能我一直在被扣钱，但是我一直不知道。"
+      <cite>—— 小林</cite>
+    </blockquote>
+    <p>
+      这是她第一次真正"看见"自动续费。从看见到弄明白，她花了整整一个月。
+    </p>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="kpi-num">12<span>款</span></div>
+        <div class="kpi-label">常用 App 人工实测</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">912<span>条</span></div>
+        <div class="kpi-label">逐条读完的"自动续费"投诉</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">30<span>元</span></div>
+        <div class="kpi-label">投诉人自述扣费金额中位数</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">3.04<span>分</span></div>
+        <div class="kpi-label">十二款 App 平均合规得分（满分 5）</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">51.2<span>%</span></div>
+        <div class="kpi-label">投诉获得回复的比例</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">87.5<span>%</span></div>
+        <div class="kpi-label">支付渠道申诉的退费成功率</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       一、开通
+       ========================================================== -->
+  <section class="reveal">
+    <div class="sec-num">第 一 关</div>
+    <h2>开通：一块钱的门</h2>
+    <p>
+      小林记得那次是深夜。那阵子她沉迷知乎的短篇故事，一篇接一篇，大多要会员才能看全。
+      她点进会员页，一排卡片横着排开：最上面写等级的名字，中间是每个月多少钱，下面是权益清单，
+      最底下压着一行小字——"每月自动续费"。
+    </p>
+    <blockquote>
+      "字挺小的，颜色也淡。但那会儿上头了，主要看价格。"
+      <cite>—— 小林</cite>
+    </blockquote>
+    <p>
+      这个定价结构，在我们实测的十二款 App 里几乎是通用模板：首期价格被放大、被前置、被做成彩色卡片；
+      续费价格藏在权益列表末尾；而"自动续费"这四个字，要么是灰色小字，要么折叠进需要点击展开的协议里。
+      <strong>十二款中有九款属于后者。</strong>
+    </p>
+    <p>
+      我们按五个维度给它们打了分——是否默认勾选、续费说明是否显著、取消需要几步、取消入口是否找得到、
+      支付前是否有续费提示，满分五分。
+    </p>
+
+    <!-- 图 1 -->
+    <figure class="chart-card" id="card-compliance">
+      <figcaption class="chart-title">图 1：十二款 App 自动续费合规得分（满分 5 分）</figcaption>
+      <div id="complianceChart"></div>
+      <div class="legend">
+        <span><i style="background:#3E2723"></i>4 分以上（较合规）</span>
+        <span><i style="background:#A1887F"></i>2.5–3.9 分（部分合规）</span>
+        <span><i style="background:#B23A2E"></i>2 分以下（不合规）</span>
+      </div>
+      <p class="chart-note">
+        团队 2026 年 10 月人工实测编码，双人交叉复核。评分维度：默认勾选 / 续费说明显著性 / 取消步数 /
+        取消入口可发现性 / 支付前续费提示。十二款平均合规得分 3.04 分，八款"部分合规"，两款"不合规"。
+      </p>
+    </figure>
+
+    <p>
+      十二款里只有两款超过四分，八款落在"部分合规"，两款不及格。有一个结果出乎我们预料：
+      在"是否默认勾选"这一项上，<span class="hl">十二款全部拿到满分</span>——没有一款把勾选框默认打开。
+      默认勾选这个最常被骂的动作，在头部平台上基本已经消失了。失分集中在另一处：
+      那句最关键的话，究竟有没有被"看见"。
+    </p>
+    <p>
+      这构不构成法律问题，法院给过一个回答。2026 年 3 月，最高人民法院发布消费者权益保护典型案例，
+      第一起是谢某诉某视讯公司。平台答辩说它提醒过了：发过站内信，也发过短信。法院看的是"显著"二字——
+      站内信没有弹窗、查看路径不明确，在信息流里挤满广告的情况下"难谓显著"；短信发送失败后也没有任何补救。
+      判决平台赔偿资金占用利息损失。
+    </p>
+    <p>
+      广州互联网法院审理的唐某案更极端。唐某付了三毛钱，买了一个网盘二十四小时的体验会员。
+      第二天凌晨，29.9 元被扣走；此后连续七个月，一共 239.2 元。法院认定，平台用灰色小字体默认勾选，
+      构成《电子商务法》禁止的搭售行为，判令全额退还。
+    </p>
+
+    <!-- 表 1 -->
+    <div class="chart-card reveal">
+      <div class="chart-title">表 1：四起案件的裁判梯度——同一种行为，三种定性</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>案件 / 处理机关</th>
+              <th>平台类型</th>
+              <th>争议焦点</th>
+              <th>认定与结果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>谢某诉某视讯公司<br><span class="tag">最高法典型案例，2026.3</span></td>
+              <td>视频</td>
+              <td>站内信 + 短信是否构成"显著"提醒</td>
+              <td>未设弹窗、路径不明，短信失败未补救；判赔资金占用利息损失</td>
+            </tr>
+            <tr>
+              <td>唐某诉某网盘公司<br><span class="tag">广州互联网法院</span></td>
+              <td>网盘</td>
+              <td>0.3 元体验后被连续扣费 239.2 元</td>
+              <td>灰色小字默认勾选构成搭售，未尽显著提醒义务；全额退还</td>
+            </tr>
+            <tr>
+              <td>黄某诉亚马逊卓越公司<br><span class="tag">北京互联网法院</span></td>
+              <td>电商会员</td>
+              <td>隐瞒"免费试享"期限及期满扣费</td>
+              <td>构成欺诈，依《消保法》第五十五条；退 476 元并三倍赔偿 1428 元</td>
+            </tr>
+            <tr>
+              <td>北京某在线学习平台<br><span class="tag tag-brick">市场监管部门行政处罚，2026.6</span></td>
+              <td>在线教育</td>
+              <td>未显著提示、取消不便</td>
+              <td>责令改正并处罚款（《电子商务法》第十九条等）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="chart-note">
+        资料来源：最高人民法院官网、广州市中级人民法院官网、南方都市报与奥一网报道、光明网；团队整理。
+        同样是"没提醒到"，有的按违约赔利息，有的按搭售退全款，有的直接认定欺诈、三倍赔偿。
+      </p>
+    </div>
+
+    <p>
+      把四起案件并排放在一起，会看到一条清晰的梯度：同样是"没提醒到"，有的按违约赔利息，
+      有的按搭售退全款，有的直接认定欺诈、三倍赔偿。这条梯度本身就是维权路径分化的司法版本——
+      <strong>你走到哪一步，取决于你遇到哪个法院、援引哪一条。</strong>
+    </p>
+    <p>
+      老秦是法学生，正在准备法考。他对这套设计有一种近乎冷静的理解："每个平台大差不差，规则本身也挺完善的。"
+      他把自动续费看成一份已经签下的合同：你在协议里同意了提前几天扣费，到点扣钱就是约定。
+    </p>
+    <blockquote>
+      "有提示是情分，没有提示也是本分。"
+      <cite>—— 老秦</cite>
+    </blockquote>
+    <p>
+      这句话值得停一下。它几乎是平台一方最完整的辩词，而且它成立——前提是那份协议真的被读到过。
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       二、忘记
+       ========================================================== -->
+  <section class="reveal">
+    <div class="sec-num">第 二 关</div>
+    <h2>忘记：她设了提醒，平台没有</h2>
+    <p>
+      阿禾设过提醒。去年夏天她刚高考完，为了追一部动漫，用支付宝开了优酷会员。连续包月，前三个月 19.9 元。
+      她在日历里专门建了一条日程，写得很清楚：第三个月，一定取消。
+    </p>
+    <blockquote>
+      "结果没看到日程。后来翻日历才发现。"
+      <cite>—— 阿禾</cite>
+    </blockquote>
+    <p>
+      第四个月，扣款渠道从支付宝换到了银行卡，金额 39.9 元。银行短信进来，她才知道。"本来不富裕的钱包雪上加霜。"
+    </p>
+    <p>
+      这是一个很值得注意的细节：<span class="hl">她为自己设了一道提醒，平台一道也没设。</span>
+      我们把黑猫投诉平台上 2026 年 8 月至 11 月的 912 条"自动续费"投诉逐条过了一遍。三成投诉里出现了
+      "不知情""莫名其妙""未告知"这类表述；明确写下"没有提醒""未提前通知"的接近一成。
+      这两个比例很可能都被低估——多数人写投诉时，第一句写的是"退钱"，不是"为什么"。
+    </p>
+
+    <!-- 图 2 -->
+    <figure class="chart-card" id="card-complaint">
+      <figcaption class="chart-title">图 2："自动续费"投诉中被投诉对象前十（n = 912）</figcaption>
+      <div id="complaintChart"></div>
+      <p class="chart-note">
+        黑猫投诉平台 2026 年 8—11 月检索结果，团队整理。前十名里音乐类占四席：
+        QQ 音乐 152 条、酷狗 95 条，两家加起来接近全部投诉的四分之一。视频类紧随其后：
+        优酷 117 条、腾讯视频 46 条、爱奇艺 42 条。
+      </p>
+    </figure>
+
+    <p>
+      但更值得看的是钱。439 条投诉里能读出具体金额，分布是这样的：
+    </p>
+
+    <!-- 图 3 -->
+    <figure class="chart-card" id="card-amount">
+      <figcaption class="chart-title">图 3：投诉人自述的扣费金额分布（n = 439，横轴为对数刻度）</figcaption>
+      <div class="hist-wrap">
+        <div class="hist" id="amountHist"></div>
+        <div class="hist-labels" id="amountLabels"></div>
+        <div class="median-line"></div>
+        <div class="median-tag">中位数 30 元</div>
+      </div>
+      <p class="chart-note">
+        黑猫投诉平台，团队整理。中位数 30 元。四分之一的人被扣不到 19 元，四分之三不到 98 元。
+        也就是说，绝大多数的纠纷，都发生在"一顿饭钱"这个量级上。
+      </p>
+    </figure>
+
+    <p>
+      这个数字后面还会再出现一次。它是整篇文章的枢纽。
+    </p>
+    <p>
+      陈女士的经历是另一种版本。她的腾讯视频会员绑在微信支付上，每个月二十几块，扣款当天微信会弹一条通知。
+    </p>
+    <blockquote>
+      "看到了，然后刚好下个月还要续费，我就没有管它。"
+      <cite>—— 陈女士</cite>
+    </blockquote>
+    <p>
+      她不觉得被冒犯："反正我每个月都会看一些，价格也不是很贵，就 29，一杯奶茶钱。"
+      她的女儿用剪映，会员费更贵，有时候要专门去找客服才能退掉。"年轻人随她去吧"，陈女士说，
+      "我就比较怕麻烦，也不大会弄这些。"
+    </p>
+    <p>
+      提醒不是没有，问题在形态。多位受访者提到同一种情形：只有在你主动打开 App 的时候，
+      首页才会飘一行小字"将于 X 月 X 日自动扣款"。不打开，就看不见。酷狗音乐会提前三天在微信里推一条通知——
+      受访者说，"这样的软件不多"。谢某案的判词在这里又响了一次：<strong>提醒不是发出去就完成了，它要"显著"。</strong>
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       三、取消
+       ========================================================== -->
+  <section class="reveal">
+    <div class="sec-num">第 三 关</div>
+    <h2>取消：一场需要教程的迷宫</h2>
+    <p>
+      小林第一次没能关掉。她在 App 里翻了很久：首页、我的、设置、内容偏好。
+      自动续费的开关不在这一层，而在"内容偏好"下面某个子分类里，和游戏、娱乐这些标签并排。
+    </p>
+    <blockquote>
+      "它不是一个单独的栏目。你要先找到它的上级，才能在上级的分类里找到它。"
+      <cite>—— 小林</cite>
+    </blockquote>
+    <p>
+      最后她是在短视频平台上搜教程找到的。<strong>一个用来关掉订阅的开关，需要教程。</strong>
+    </p>
+
+    <!-- 开通 / 取消 不对称对比 -->
+    <figure class="chart-card" id="card-steps">
+      <figcaption class="chart-title">开通与取消的不对称：从指定起点到完成操作所需的步数</figcaption>
+
+      <div class="cmp-row">
+        <div class="cmp-label">开通</div>
+        <div class="cmp-track">
+          <div class="cmp-bg"></div>
+          <div class="cmp-fill" style="--w:19%;background:linear-gradient(90deg,#BCAAA4,#A1887F);"></div>
+          <span class="cmp-val">1–2 步</span>
+        </div>
+      </div>
+
+      <div class="cmp-row">
+        <div class="cmp-label">取消</div>
+        <div class="cmp-track">
+          <div class="cmp-bg"></div>
+          <div class="cmp-fill" style="--w:100%;background:linear-gradient(90deg,#8D6E63,#3E2723);"></div>
+          <span class="cmp-val">5–8 步</span>
+        </div>
+      </div>
+
+      <p class="chart-note">
+        团队实测记录：从指定起点到完成取消，步数从三步到八步不等；其中四款必须跳出应用，
+        回到系统设置或支付平台才能完成。开通通常一到两步，价格被放大、优惠被前置、按钮是彩色的；
+        取消五到八步，入口折叠在下级菜单里，中途还有挽留弹窗。
+      </p>
+    </figure>
+
+    <p>
+      这不是个例。我们的实测记录里，从指定起点到完成取消，步数从三步到八步不等；其中四款必须跳出应用，
+      回到系统设置或支付平台才能完成。阿禾说得更直接：既然要搜攻略才能关掉，那说明它本来就不打算让你直观地关掉。
+    </p>
+    <p>
+      取消路上的第二道关卡是挽留。一位受访者在取消剪映时，苹果的订阅页面在最后一步给了她一张六块钱的优惠券——
+      "我当时还挺疑惑，它竟然可以跟 App 串通起来"。另一位记得更清楚：点击关闭后会弹两个按钮，
+      "继续关闭"和"取消关闭"，而"取消关闭"被标成了更醒目的颜色。她差点点错。要是真点了，
+      页面会再送一张大额优惠券到钱包里。
+    </p>
+    <p>
+      图 1 里得分最低的两款——优酷、网易云音乐，各 1.5 分——失分几乎全在"取消入口是否找得到"和
+      "支付前是否有续费提示"上。而它们的开通页面，和另外十款并没有区别。
+    </p>
+    <p>
+      把开通和取消并排看，会看到一种不对称：开通通常一到两步，价格被放大、优惠被前置、按钮是彩色的；
+      取消五到八步，入口折叠在下级菜单里，中途还有挽留弹窗。<strong>这种不对称不需要谁承认，它写在每一次点击里。</strong>
+      唐某案的判决书把这种不对称翻译成了法律语言：灰色小字默认勾选构成搭售，站内信没有消息标识、
+      要多层点击才能查看，不属于"显著方式"。
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       四、追讨
+       ========================================================== -->
+  <section class="reveal">
+    <div class="sec-num">第 四 关</div>
+    <h2>追讨：谁在退钱，谁在关门</h2>
+    <p>
+      912 条投诉里，718 条的诉求是"退款"，占 <span class="hl">78.7%</span>。另有约五分之一同时要求
+      "改善服务""赔偿""道歉"——但排在第一位的永远是钱。
+    </p>
+    <p>
+      而状态栏里写着"已回复"的，只有 467 条，<span class="hl">51.2%</span>。
+      将近一半的投诉，连一句回复都没有等到。
+    </p>
+    <p>
+      阿哲是少数把钱要回来的人。他的办法不是找客服，是回到支付渠道：在微信账单里点开那笔交易，
+      选"对这笔交易有疑问"，上传支付截图，再用文字说明自己并不知情。
+    </p>
+    <blockquote>
+      "大概过了三个工作日。第二天客服反馈说商家正在确认，又过了两天，钱到账了。"
+      <cite>—— 阿哲</cite>
+    </blockquote>
+    <p>
+      他试过两三次，成功一次。失败的那些，商家只回一句"正在查看"，一周之后不了了之。
+      他自己总结这件事，说了一句很像结论的话：
+    </p>
+    <blockquote>
+      "首先一部分人认为不可以追回，这是最大的信息差。"
+      <cite>—— 阿哲</cite>
+    </blockquote>
+    <p>不同路径的成功率差得很远：</p>
+
+    <!-- 图 4 -->
+    <figure class="chart-card" id="card-refund">
+      <figcaption class="chart-title">图 4：三条退费路径的成功率对比</figcaption>
+      <div id="refundChart"></div>
+      <p class="chart-note">
+        消协数据来自北京市消协调研；客服与支付渠道为区间估计，据公开报道与访谈整理，非官方统计。
+        最"正规"的消协 / 12315 路径，成功率反而最低：它要求你写清诉求、等待转办、留下证据；
+        而支付渠道只要求你点开那笔交易，说一句"我不知道"。
+      </p>
+    </figure>
+
+    <p>
+      小林没有走这三条路里的任何一条。她算过账：十九块，可能二十，追回要提交材料、等回复、反复沟通。
+    </p>
+    <blockquote>
+      "维权比较困难，退款可能就是不好去弄，要耗费我大量的时间和精力。"
+      <cite>—— 小林</cite>
+    </blockquote>
+    <p>
+      她把这个决定叫作"理性放弃"。
+    </p>
+    <p>
+      <strong>"理性放弃"这四个字，恰好是这套商业模式的定价基础。</strong>
+      当单笔金额落在 30 元这个量级，而追讨的时间成本远高于 30 元，放弃对每一个个体都是最优解；
+      加总起来，就变成了平台账本上一笔稳定、可预期的收入。
+    </p>
+    <p>
+      黄某诉亚马逊案的判决，是这条链条上唯一的反向力量：退 476 元，再赔三倍 1428 元。
+      惩罚性赔偿的意义不在于那 1428 块，而在于它把"放弃"重新定价了——只要你愿意走到法院。
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       账本的另一端
+       ========================================================== -->
+  <section class="reveal">
+    <div class="sec-num">另 一 端</div>
+    <h2>账本的另一端</h2>
+    <p>现在把镜头从个人账本挪到公司账本。</p>
+
+    <div class="chart-card reveal">
+      <div class="chart-title">表 2：头部平台会员相关收入（2026 年 Q1）</div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>平台（主体）</th>
+              <th>2026 年 Q1 相关收入</th>
+              <th>口径与备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>爱奇艺</td>
+              <td>会员服务收入 42.0 亿元，占营收 67.5%</td>
+              <td>较纯会员口径；营收 62.3 亿元，会员收入同比降约 5%</td>
+            </tr>
+            <tr>
+              <td>腾讯音乐<br><span class="tag">QQ 音乐、酷狗、酷我</span></td>
+              <td>音乐会员服务收入 45.7 亿元，同比 +6.6%</td>
+              <td>较纯会员口径；音乐相关服务总收入 65.1 亿元</td>
+            </tr>
+            <tr>
+              <td>腾讯视频</td>
+              <td>未单列</td>
+              <td>并入腾讯控股；长视频订阅收入同比 -2%，付费会员数已不再披露</td>
+            </tr>
+            <tr>
+              <td>知乎</td>
+              <td>付费内容及 IP 运营收入 4.02 亿元</td>
+              <td>较大口径；月均订阅会员 1310 万，同比 -7.7%</td>
+            </tr>
+            <tr>
+              <td>网易云音乐</td>
+              <td>净收入 19.81 亿元，同比 +6.6%</td>
+              <td>会员收入未单独拆分；毛利率约 37.1%</td>
+            </tr>
+            <tr>
+              <td>微博</td>
+              <td>增值服务收入 5160 万美元，同比 -11%</td>
+              <td>含会员、直播、游戏，非纯会员口径</td>
+            </tr>
+            <tr>
+              <td>Apple</td>
+              <td>服务业务收入 310 亿美元，同比 +16%</td>
+              <td>含 App Store、iCloud、Apple Music 等订阅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="chart-note">
+        资料来源：各公司 2026 年第一季度财报（港交所披露易、SEC EDGAR、投资者关系页面）。
+        口径不统一，不宜直接横向比较；团队整理。
+      </p>
+    </div>
+
+    <p>
+      有一个细节值得写进来：在这些财报里，找不到"自动续费"这个科目。它不是一个可以被单独审计的收入项，
+      它被折叠在"会员服务收入""增值服务""服务业务"这些更大的口径里。换句话说，
+      <strong>靠"忘记取消"留存下来的那部分收入，在公开披露中是隐形的。</strong>
+    </p>
+    <p>
+      没有数字，不等于没有规模。一个可以参照的量级：2026 年 Q1，仅爱奇艺一家的会员收入就是 42 亿元；
+      如果其中有百分之一的收入来自"忘记取消"，那也是四千多万。
+    </p>
+    <p>
+      监管的手也伸进来过。2024 年 7 月《消费者权益保护法实施条例》要求以显著方式提请消费者注意自动续费等事项；
+      2026 年 4 月《互联网平台价格行为规则》进一步细化了提示与取消的要求。2026 年 6 月，
+      北京市市场监管部门依据《电子商务法》第十九条和《网络交易监督管理办法》第十七条，
+      对一家在线学习平台作出行政处罚，责令改正并罚款。
+    </p>
+    <p>
+      但我们的实测是在 2026 年 10 月做的——两个政策节点之后。十二款 App 的平均合规得分 3.04 分，
+      八款"部分合规"，两款"不合规"。
+    </p>
+    <p>
+      <strong>政策确实改变了页面：现在多数 App 会要求你展开协议，有的会强制停留三秒。它没有改变结构：入口还是那么低，出口还是那么高。</strong>
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       一条备注
+       ========================================================== -->
+  <section class="reveal">
+    <div class="sec-num">尾 声</div>
+    <h2>一条备注</h2>
+    <p>
+      十一月初，小林又打开记账软件。那笔十九块的支出还在，她在备注里补了一行字：
+      <span class="hl">知乎会员，自动续费，已关闭。</span>
+    </p>
+    <p>
+      账本上多了一行字，账单不会因此少一笔。
+    </p>
+    <p>
+      这一个月里，我们听到的最好的一句建议来自陈女士，她说完自己也笑了：
+    </p>
+    <blockquote>
+      "扣费前必须提醒，你能再一次刺激一下他的感官，让他觉得我到底要不要再考虑一下。"
+      <cite>—— 陈女士</cite>
+    </blockquote>
+    <p>
+      老秦的建议更硬：与其指望平台自觉，不如把"显著提醒"写死成可执行的标准——提前几天、以什么方式、
+      失败了要不要补救。阿哲的建议最朴素：让每个人都知道，钱是可以在支付渠道里要回来的。
+    </p>
+
+    <div class="ending">
+      <div class="final-quote">
+        三句话指向同一件事：把出口的成本，降到和入口一样低。
+      </div>
+      <p style="font-size:13px;color:#7A6B63;">
+        本文数据来自团队 2026 年 10 月对十二款常用 App 的人工实测，以及黑猫投诉平台 2026 年 8—11 月的
+        912 条"自动续费"投诉记录；案例信息来自最高人民法院官网、广州市中级人民法院官网、
+        北京互联网法院及市场监管部门公开信息；财务数据来自各公司 2026 年第一季度财报。
+      </p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ============================================================
+     页脚
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <strong>数据说明</strong>：本文所引用图表均由团队整理制作。图 1 为十二款 App 的合规得分横向条形图；
+    图 2 为投诉对象前十的横向条形图；图 3 为扣费金额分布直方图（对数刻度，n=439）；
+    图 4 为三条退费路径成功率对比。表 1、表 2 为案件与财务数据表格。<br>
+    <strong>口径提示</strong>：各平台收入口径不统一，不宜直接横向比较；退费成功率中客服与支付渠道为区间估计，
+    非官方统计。数据以原始来源为准。
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ==========================================================
+     数据
+     ========================================================== */
+
+  /* 图 1：合规得分 */
+  var COMPLIANCE = [
+    { name: '知乎',       value: 4.5 },
+    { name: '微博',       value: 4.0 },
+    { name: '酷狗音乐',   value: 3.5 },
+    { name: '百度网盘',   value: 3.5 },
+    { name: 'Apple',      value: 3.5 },
+    { name: 'QQ音乐',     value: 3.0 },
+    { name: '腾讯视频',   value: 3.0 },
+    { name: '抖音',       value: 3.0 },
+    { name: '夸克',       value: 3.0 },
+    { name: '爱奇艺',     value: 2.5 },
+    { name: '网易云音乐', value: 1.5 },
+    { name: '优酷',       value: 1.5 }
+  ];
+  var COMPLIANCE_MAX = 5;
+
+  /* 图 2：投诉数量 */
+  var COMPLAINT = [
+    { name: 'QQ音乐',     value: 152 },
+    { name: '优酷',       value: 117 },
+    { name: '酷狗音乐',   value: 95  },
+    { name: '夸克',       value: 50  },
+    { name: '腾讯视频',   value: 46  },
+    { name: '抖音',       value: 45  },
+    { name: '爱奇艺',     value: 42  },
+    { name: '全民K歌',    value: 34  },
+    { name: '网易云音乐', value: 33  },
+    { name: '百度网盘',   value: 21  }
+  ];
+  var COMPLAINT_MAX = 152;
+
+  /* 图 3：扣费金额分布 */
+  var AMOUNT_BINS = [
+    { label: '<10',      value: 42  },
+    { label: '10–20',    value: 72  },
+    { label: '20–30',    value: 58  },
+    { label: '30–50',    value: 120 },
+    { label: '50–80',    value: 30  },
+    { label: '80–120',   value: 31  },
+    { label: '120–200',  value: 32  },
+    { label: '200–300',  value: 12  },
+    { label: '300–500',  value: 14  },
+    { label: '500–1000', value: 15  }
+  ];
+  var AMOUNT_MAX = 120;
+
+  /* 图 4：退费成功率 */
+  var REFUND = [
+    { name: '消协 / 12315', value: 11.45, color: '#BCAAA4' },
+    { name: '平台客服协商', value: 65,    color: '#8D6E63' },
+    { name: '支付渠道申诉', value: 87.5,  color: '#3E2723' }
+  ];
+  var REFUND_MAX = 100;
+
+  /* ==========================================================
+     工具
+     ========================================================== */
+  function pickComplianceColor(v) {
+    if (v >= 4) return '#3E2723';
+    if (v >= 2.5) return '#A1887F';
+    return '#B23A2E';
+  }
+
+  /* 构建横向条形图 */
+  function buildHBars(container, data, max, colorFn, valueFn, unit) {
+    var html = '';
+    data.forEach(function (d) {
+      var pct = Math.max((d.value / max) * 100, 1.5);
+      var color = typeof colorFn === 'function' ? colorFn(d) : colorFn;
+      html +=
+        '<div class="hbar-row">' +
+          '<div class="hbar-name">' + d.name + '</div>' +
+          '<div class="hbar-track">' +
+            '<div class="hbar-bg"></div>' +
+            '<div class="hbar-fill" style="--w:' + pct.toFixed(2) + '%;background:' + color + ';">' +
+              '<span class="hbar-val">' + valueFn(d) + (unit || '') + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    });
+    container.innerHTML = html;
+  }
+
+  /* ==========================================================
+     渲染各图
+     ========================================================== */
+  function renderCompliance() {
+    var el = document.getElementById('complianceChart');
+    if (!el) return;
+    buildHBars(
+      el,
+      COMPLIANCE,
+      COMPLIANCE_MAX,
+      function (d) { return pickComplianceColor(d.value); },
+      function (d) { return d.value.toFixed(1); },
+      ' 分'
+    );
+  }
+
+  function renderComplaint() {
+    var el = document.getElementById('complaintChart');
+    if (!el) return;
+    buildHBars(
+      el,
+      COMPLAINT,
+      COMPLAINT_MAX,
+      '#8D6E63',
+      function (d) { return d.value; },
+      ' 条'
+    );
+  }
+
+  function renderRefund() {
+    var el = document.getElementById('refundChart');
+    if (!el) return;
+    buildHBars(
+      el,
+      REFUND,
+      REFUND_MAX,
+      function (d) { return d.color; },
+      function (d) { return d.value.toFixed(1); },
+      '%'
+    );
+  }
+
+  function renderAmountHist() {
+    var histEl = document.getElementById('amountHist');
+    var labelEl = document.getElementById('amountLabels');
+    if (!histEl || !labelEl) return;
+
+    var barsHtml = '';
+    var labelsHtml = '';
+
+    AMOUNT_BINS.forEach(function (d) {
+      var h = Math.max((d.value / AMOUNT_MAX) * 100, 1);
+      barsHtml +=
+        '<div class="hist-col">' +
+          '<div class="hist-bar" style="--h:' + h.toFixed(2) + '%" ' +
+               'title="' + d.label + ' 元：' + d.value + ' 条"></div>' +
+        '</div>';
+      labelsHtml += '<div>' + d.label + '</div>';
+    });
+
+    histEl.innerHTML = barsHtml;
+    labelEl.innerHTML = labelsHtml;
+  }
+
+  /* ==========================================================
+     滚动入场 + 图表动画触发
+     ========================================================== */
+  function initObservers() {
+    var targets = document.querySelectorAll('.chart-card, .reveal');
+    var cards   = document.querySelectorAll('.chart-card');
+
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach(function (c) { c.classList.add('in'); });
+      targets.forEach(function (t) { t.classList.add('in'); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    targets.forEach(function (t) { io.observe(t); });
+
+    /* 首屏内的图表立即触发动画 */
+    setTimeout(function () {
+      cards.forEach(function (c) {
+        var r = c.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.95 && r.bottom > 0) {
+          c.classList.add('in');
+        }
+      });
+    }, 120);
+  }
+
+  /* ==========================================================
+     初始化
+     ========================================================== */
+  function init() {
+    renderCompliance();
+    renderComplaint();
+    renderRefund();
+    renderAmountHist();
+    initObservers();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
